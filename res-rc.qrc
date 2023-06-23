@@ -1,0 +1,17 @@
+<RCC>
+  <qresource prefix="icons">
+    <file>icons_black/analytics_FILL0_wght400_GRAD0_opsz48.svg</file>
+    <file>icons_black/delete_FILL0_wght400_GRAD0_opsz48.svg</file>
+    <file>icons_black/delete_FILL1_wght400_GRAD0_opsz48.svg</file>
+    <file>icons_black/add_circle_FILL0_wght400_GRAD0_opsz48.svg</file>
+    <file>icons_black/add_circle_FILL1_wght400_GRAD0_opsz48.svg</file>
+    <file>icons_black/attach_money_FILL0_wght400_GRAD0_opsz48.svg</file>
+    <file>icons_black/attach_money_FILL1_wght400_GRAD0_opsz48.svg</file>
+    <file>icons_black/edit_note_FILL0_wght400_GRAD0_opsz48.svg</file>
+    <file>icons_black/edit_note_FILL1_wght400_GRAD0_opsz48.svg</file>
+    <file>icons_black/filter_alt_FILL0_wght400_GRAD0_opsz48.svg</file>
+    <file>icons_black/filter_alt_FILL1_wght400_GRAD0_opsz48.svg</file>
+    <file>icons_black/library_books_FILL0_wght400_GRAD0_opsz48.svg</file>
+    <file>icons_black/library_books_FILL1_wght400_GRAD0_opsz48.svg</file>
+  </qresource>
+</RCC>
