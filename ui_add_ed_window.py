@@ -7,7 +7,6 @@
 
 
 from PyQt6 import QtCore, QtGui, QtWidgets
-import res_ad_ed
 
 
 class Ui_Dialog(object):
@@ -31,75 +30,75 @@ class Ui_Dialog(object):
         self.frame.setObjectName("frame")
         self.verticalLayout = QtWidgets.QVBoxLayout(self.frame)
         self.verticalLayout.setObjectName("verticalLayout")
-        self.label = QtWidgets.QLabel(parent=self.frame)
-        self.label.setMaximumSize(QtCore.QSize(16777215, 60))
+        self.new_data_label = QtWidgets.QLabel(parent=self.frame)
+        self.new_data_label.setMaximumSize(QtCore.QSize(16777215, 60))
+        self.new_data_label.setSizeIncrement(QtCore.QSize(0, 0))
         font = QtGui.QFont()
         font.setFamily("Microsoft YaHei UI Light")
         font.setPointSize(20)
-        self.label.setFont(font)
-        self.label.setStyleSheet("border: none;\n"
+        self.new_data_label.setFont(font)
+        self.new_data_label.setAutoFillBackground(False)
+        self.new_data_label.setStyleSheet("border: none;\n"
 "/*font-weight: bold;*/\n"
 "font-size: 20pt;\n"
 "background-color:none;\n"
 "")
-        self.label.setObjectName("label")
-        self.verticalLayout.addWidget(self.label)
-        self.lineEdit = QtWidgets.QLineEdit(parent=self.frame)
+        self.new_data_label.setObjectName("new_data_label")
+        self.verticalLayout.addWidget(self.new_data_label)
+        self.le_title_description = QtWidgets.QLineEdit(parent=self.frame)
+        self.le_title_description.setMinimumSize(QtCore.QSize(0, 50))
         font = QtGui.QFont()
         font.setFamily("Microsoft YaHei UI Light")
         font.setPointSize(14)
-        self.lineEdit.setFont(font)
-        self.lineEdit.setStyleSheet("font-size: 14pt;\n"
+        self.le_title_description.setFont(font)
+        self.le_title_description.setAutoFillBackground(True)
+        self.le_title_description.setStyleSheet("font-size: 14pt;\n"
 "height: 40px;")
-        self.lineEdit.setObjectName("lineEdit")
-        self.verticalLayout.addWidget(self.lineEdit)
-        self.lineEdit_2 = QtWidgets.QLineEdit(parent=self.frame)
+        self.le_title_description.setObjectName("le_title_description")
+        self.verticalLayout.addWidget(self.le_title_description)
+        self.le_author_description = QtWidgets.QLineEdit(parent=self.frame)
+        self.le_author_description.setMinimumSize(QtCore.QSize(0, 50))
         font = QtGui.QFont()
         font.setFamily("Microsoft YaHei UI Light")
         font.setPointSize(14)
-        self.lineEdit_2.setFont(font)
-        self.lineEdit_2.setStyleSheet("font-size: 14pt;\n"
+        self.le_author_description.setFont(font)
+        self.le_author_description.setAutoFillBackground(True)
+        self.le_author_description.setStyleSheet("font-size: 14pt;\n"
 "height: 40px;")
-        self.lineEdit_2.setObjectName("lineEdit_2")
-        self.verticalLayout.addWidget(self.lineEdit_2)
-        self.lineEdit_3 = QtWidgets.QLineEdit(parent=self.frame)
+        self.le_author_description.setObjectName("le_author_description")
+        self.verticalLayout.addWidget(self.le_author_description)
+        self.le_genre_description = QtWidgets.QLineEdit(parent=self.frame)
+        self.le_genre_description.setMinimumSize(QtCore.QSize(0, 50))
         font = QtGui.QFont()
         font.setFamily("Microsoft YaHei UI Light")
         font.setPointSize(14)
-        self.lineEdit_3.setFont(font)
-        self.lineEdit_3.setStyleSheet("font-size: 14pt;\n"
+        self.le_genre_description.setFont(font)
+        self.le_genre_description.setStyleSheet("font-size: 14pt;\n"
 "height: 40px;")
-        self.lineEdit_3.setObjectName("lineEdit_3")
-        self.verticalLayout.addWidget(self.lineEdit_3)
-        self.lineEdit_4 = QtWidgets.QLineEdit(parent=self.frame)
+        self.le_genre_description.setObjectName("le_genre_description")
+        self.verticalLayout.addWidget(self.le_genre_description)
+        self.de_date_description = QtWidgets.QDateEdit(parent=self.frame)
+        self.de_date_description.setMinimumSize(QtCore.QSize(0, 50))
         font = QtGui.QFont()
         font.setFamily("Microsoft YaHei UI Light")
         font.setPointSize(14)
-        self.lineEdit_4.setFont(font)
-        self.lineEdit_4.setStyleSheet("font-size: 14pt;\n"
+        self.de_date_description.setFont(font)
+        self.de_date_description.setStyleSheet("font-size: 14pt;\n"
 "height: 40px;")
-        self.lineEdit_4.setObjectName("lineEdit_4")
-        self.verticalLayout.addWidget(self.lineEdit_4)
-        self.dateEdit = QtWidgets.QDateEdit(parent=self.frame)
-        font = QtGui.QFont()
-        font.setFamily("Microsoft YaHei UI Light")
-        font.setPointSize(14)
-        self.dateEdit.setFont(font)
-        self.dateEdit.setStyleSheet("font-size: 14pt;\n"
-"height: 40px;")
-        self.dateEdit.setObjectName("dateEdit")
-        self.verticalLayout.addWidget(self.dateEdit)
-        self.comboBox = QtWidgets.QComboBox(parent=self.frame)
-        self.comboBox.setMinimumSize(QtCore.QSize(0, 0))
-        self.comboBox.setMaximumSize(QtCore.QSize(16777215, 16777215))
+        self.de_date_description.setDate(QtCore.QDate(2023, 6, 1))
+        self.de_date_description.setObjectName("de_date_description")
+        self.verticalLayout.addWidget(self.de_date_description)
+        self.cb_status_description = QtWidgets.QComboBox(parent=self.frame)
+        self.cb_status_description.setMinimumSize(QtCore.QSize(0, 50))
+        self.cb_status_description.setMaximumSize(QtCore.QSize(16777215, 16777215))
         font = QtGui.QFont()
         font.setFamily("Microsoft YaHei UI Light")
         font.setPointSize(14)
         font.setBold(False)
         font.setItalic(False)
         font.setWeight(3)
-        self.comboBox.setFont(font)
-        self.comboBox.setStyleSheet("QComboBox{\n"
+        self.cb_status_description.setFont(font)
+        self.cb_status_description.setStyleSheet("QComboBox{\n"
 "font-size: 16pt;\n"
 "height: 40px;\n"
 "font: 25 14pt \"Microsoft YaHei UI Light\";\n"
@@ -109,29 +108,29 @@ class Ui_Dialog(object):
 "background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(22, 108, 204, 255), stop:1 rgba(83, 190, 201, 255));\n"
 "}\n"
 "")
-        self.comboBox.setEditable(False)
-        self.comboBox.setObjectName("comboBox")
-        self.comboBox.addItem("")
-        self.comboBox.addItem("")
-        self.comboBox.addItem("")
-        self.comboBox.addItem("")
-        self.verticalLayout.addWidget(self.comboBox)
-        self.lineEdit_5 = QtWidgets.QLineEdit(parent=self.frame)
-        self.lineEdit_5.setMinimumSize(QtCore.QSize(0, 80))
+        self.cb_status_description.setEditable(False)
+        self.cb_status_description.setObjectName("cb_status_description")
+        self.cb_status_description.addItem("")
+        self.cb_status_description.addItem("")
+        self.cb_status_description.addItem("")
+        self.cb_status_description.addItem("")
+        self.verticalLayout.addWidget(self.cb_status_description)
+        self.le_price_description = QtWidgets.QLineEdit(parent=self.frame)
+        self.le_price_description.setMinimumSize(QtCore.QSize(0, 50))
         font = QtGui.QFont()
         font.setFamily("Microsoft YaHei UI Light")
         font.setPointSize(14)
-        self.lineEdit_5.setFont(font)
-        self.lineEdit_5.setStyleSheet("font-size: 14pt;\n"
+        self.le_price_description.setFont(font)
+        self.le_price_description.setStyleSheet("font-size: 14pt;\n"
 "height: 40px;")
-        self.lineEdit_5.setObjectName("lineEdit_5")
-        self.verticalLayout.addWidget(self.lineEdit_5)
-        self.pushButton = QtWidgets.QPushButton(parent=self.frame)
+        self.le_price_description.setObjectName("le_price_description")
+        self.verticalLayout.addWidget(self.le_price_description)
+        self.save_pushButton = QtWidgets.QPushButton(parent=self.frame)
         font = QtGui.QFont()
         font.setFamily("Microsoft YaHei UI Light")
         font.setPointSize(14)
-        self.pushButton.setFont(font)
-        self.pushButton.setStyleSheet("QPushButton{\n"
+        self.save_pushButton.setFont(font)
+        self.save_pushButton.setStyleSheet("QPushButton{\n"
 "font-size: 14pt;\n"
 "background-color: rgba(255, 255, 255, 10);\n"
 "border: 1px solid rgba(255, 255, 255, 40);\n"
@@ -148,28 +147,27 @@ class Ui_Dialog(object):
 "}")
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap(":/newPrefix/icons_black/save_FILL0_wght400_GRAD0_opsz48.svg"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
-        self.pushButton.setIcon(icon)
-        self.pushButton.setIconSize(QtCore.QSize(30, 30))
-        self.pushButton.setObjectName("pushButton")
-        self.verticalLayout.addWidget(self.pushButton)
+        self.save_pushButton.setIcon(icon)
+        self.save_pushButton.setIconSize(QtCore.QSize(30, 30))
+        self.save_pushButton.setObjectName("save_pushButton")
+        self.verticalLayout.addWidget(self.save_pushButton)
         self.verticalLayout_2.addWidget(self.frame)
 
         self.retranslateUi(Dialog)
-        self.comboBox.setCurrentIndex(0)
+        self.cb_status_description.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(Dialog)
 
     def retranslateUi(self, Dialog):
         _translate = QtCore.QCoreApplication.translate
-        Dialog.setWindowTitle(_translate("Dialog", "Dialog"))
-        self.label.setText(_translate("Dialog", "Добавить книгу"))
-        self.lineEdit.setPlaceholderText(_translate("Dialog", "id"))
-        self.lineEdit_2.setPlaceholderText(_translate("Dialog", "Название"))
-        self.lineEdit_3.setPlaceholderText(_translate("Dialog", "Автор"))
-        self.lineEdit_4.setPlaceholderText(_translate("Dialog", "Жанр"))
-        self.comboBox.setCurrentText(_translate("Dialog", "В планах"))
-        self.comboBox.setItemText(0, _translate("Dialog", "В планах"))
-        self.comboBox.setItemText(1, _translate("Dialog", "Брошено"))
-        self.comboBox.setItemText(2, _translate("Dialog", "В процессе"))
-        self.comboBox.setItemText(3, _translate("Dialog", "Прочитано"))
-        self.lineEdit_5.setPlaceholderText(_translate("Dialog", "Примечания"))
-        self.pushButton.setText(_translate("Dialog", "Сохранить"))
+        Dialog.setWindowTitle(_translate("Dialog", "Change"))
+        self.new_data_label.setText(_translate("Dialog", "Добавить книгу"))
+        self.le_title_description.setPlaceholderText(_translate("Dialog", "Название"))
+        self.le_author_description.setPlaceholderText(_translate("Dialog", "Автор"))
+        self.le_genre_description.setPlaceholderText(_translate("Dialog", "Жанр"))
+        self.cb_status_description.setCurrentText(_translate("Dialog", "В планах"))
+        self.cb_status_description.setItemText(0, _translate("Dialog", "В планах"))
+        self.cb_status_description.setItemText(1, _translate("Dialog", "Брошено"))
+        self.cb_status_description.setItemText(2, _translate("Dialog", "В процессе"))
+        self.cb_status_description.setItemText(3, _translate("Dialog", "Прочитано"))
+        self.le_price_description.setPlaceholderText(_translate("Dialog", "Цена"))
+        self.save_pushButton.setText(_translate("Dialog", "Выполнить"))
