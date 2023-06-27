@@ -9,10 +9,11 @@
 from PyQt6 import QtCore, QtGui, QtWidgets
 import res_rc
 
+
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(1100, 700)
+        MainWindow.resize(1109, 724)
         MainWindow.setStyleSheet("background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(22, 108, 204, 255), stop:1 rgba(83, 190, 201, 255));\n"
 "")
         self.centralwidget = QtWidgets.QWidget(parent=MainWindow)
@@ -259,43 +260,50 @@ class Ui_MainWindow(object):
         self.Layout_buttons.addWidget(self.analytics_pushButton)
         self.verticalLayout.addWidget(self.buttons_frame)
         self.tableView = QtWidgets.QTableView(parent=self.centralwidget)
-        self.tableView.setMaximumSize(QtCore.QSize(10000, 10000))
         font = QtGui.QFont()
-        font.setFamily("Microsoft JhengHei UI Light")
-        font.setPointSize(7)
-        font.setBold(False)
-        font.setWeight(50)
+        font.setFamily("Microsoft YaHei UI Light")
+        font.setPointSize(16)
+        font.setStyleStrategy(QtGui.QFont.StyleStrategy.PreferDefault)
         self.tableView.setFont(font)
         self.tableView.setStyleSheet("QTableView{\n"
-"border: 1px solid rgba(255, 255, 255, 50);\n"
-"background-color: rgba(255, 255, 255, 50);\n"
+"border: 1px solid rgba(255, 255, 255, 90);\n"
+"background-color: rgba(255, 255, 255, 70);\n"
 "border-bottom-left-radius: 8px;\n"
 "border-bottom-right-radius: 8px; \n"
 "}\n"
 "\n"
-"QTableView::section{\n"
-"border: none;\n"
-"background-color: rgba(36, 42, 132);\n"
-"color: rgba(255, 255, 255);\n"
+"QHeaderView::section {\n"
+"background-color: rgb(0, 159, 203);\n"
+"border: 1px solid rgba(255, 255, 255, 100);\n"
 "height: 50px;\n"
-"font-size: 14pt;\n"
+"font-size: 18pt;\n"
+"font: 25 18pt \"Microsoft YaHei UI Light\";\n"
 "}\n"
 "\n"
-"QTableView::item{\n"
-"border-style: none ;\n"
-"height: px;\n"
-"font-size: 14pt;\n"
+"QTableView::item {\n"
+"    border-style: none;\n"
+"    border-bottom: 1px solid rgba(255,255,255,50);\n"
+"    border-right: 1px solid rgba(255,255,255,50);\n"
+"\n"
 "}\n"
 "\n"
-"QTableView::item:select{\n"
-"border: none;\n"
-"background-color: rgba(255, 255, 255, 50);\n"
-"}")
+"QTableView::item:selected{\n"
+"    border:  rgba(255, 255, 255, 90);\n"
+"    background-color: rgba(255, 255, 255, 70);\n"
+"}\n"
+"\n"
+"\n"
+"")
         self.tableView.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarPolicy.ScrollBarAlwaysOff)
         self.tableView.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarPolicy.ScrollBarAlwaysOff)
+        self.tableView.setSizeAdjustPolicy(QtWidgets.QAbstractScrollArea.SizeAdjustPolicy.AdjustToContents)
+        self.tableView.setTextElideMode(QtCore.Qt.TextElideMode.ElideRight)
         self.tableView.setShowGrid(False)
+        self.tableView.setSortingEnabled(True)
         self.tableView.setObjectName("tableView")
-        self.tableView.horizontalHeader().setDefaultSectionSize(135)
+        self.tableView.horizontalHeader().setDefaultSectionSize(155)
+        self.tableView.horizontalHeader().setStretchLastSection(True)
+        self.tableView.verticalHeader().setVisible(False)
         self.verticalLayout.addWidget(self.tableView)
         MainWindow.setCentralWidget(self.centralwidget)
 
@@ -313,4 +321,4 @@ class Ui_MainWindow(object):
         self.edit_pushButton.setText(_translate("MainWindow", "Редактировать"))
         self.del_pushButton.setText(_translate("MainWindow", "Удалить"))
         self.filter_pushButton.setText(_translate("MainWindow", "Фильтр"))
-        self.analytics_pushButton.setText(_translate("MainWindow", "Анилитика"))
+        self.analytics_pushButton.setText(_translate("MainWindow", "Аналитика"))

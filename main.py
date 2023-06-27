@@ -38,6 +38,7 @@ class Booktrack(QMainWindow):
         sender = self.sender()  # кто отправил последний сигнал в приложении
         if sender.text() == 'Добавить':
             self.ui_window.save_pushButton.clicked.connect(self.add_new_transaction)
+
         else:
             self.ui_window.save_pushButton.clicked.connect(self.edit_current_transaction)
 
@@ -71,14 +72,13 @@ class Booktrack(QMainWindow):
 
     def del_current_transaction(self):
         try:
-            index = self.ui.tableView.selectedIndexes()[0]
-            id = str(self.ui.tableView.model().data(index))
-            self.db_object.delete_transaction_query(id)
+            index = self.ui.tableView.selectedIndexes()
+            for i in index:
+                id = (self.ui.tableView.model().data(i))
+                self.db_object.delete_transaction_query(id)
             self.view_data()
         except IndexError:
             print('IndexError')
-
-
 
     def filter_lines(self):
         pass

@@ -7,6 +7,7 @@
 
 
 from PyQt6 import QtCore, QtGui, QtWidgets
+import res_ad_ed
 
 
 class Ui_Dialog(object):
