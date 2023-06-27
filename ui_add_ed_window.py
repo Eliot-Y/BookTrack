@@ -13,7 +13,9 @@ import res_ad_ed
 class Ui_Dialog(object):
     def setupUi(self, Dialog):
         Dialog.setObjectName("Dialog")
-        Dialog.resize(400, 586)
+        Dialog.resize(400, 570)
+        Dialog.setMinimumSize(QtCore.QSize(400, 570))
+        Dialog.setMaximumSize(QtCore.QSize(400, 570))
         font = QtGui.QFont()
         font.setFamily("Microsoft YaHei UI Light")
         Dialog.setFont(font)
@@ -23,16 +25,14 @@ class Ui_Dialog(object):
         self.verticalLayout_2.setObjectName("verticalLayout_2")
         self.frame = QtWidgets.QFrame(parent=Dialog)
         self.frame.setStyleSheet("border: none;\n"
-"background-color: rgb(255, 255, 255, 40);\n"
 "border-radius: 8px;\n"
+"background-color: rgba(255, 255, 255, 40);\n"
 "")
-        self.frame.setFrameShape(QtWidgets.QFrame.Shape.StyledPanel)
-        self.frame.setFrameShadow(QtWidgets.QFrame.Shadow.Raised)
         self.frame.setObjectName("frame")
         self.verticalLayout = QtWidgets.QVBoxLayout(self.frame)
         self.verticalLayout.setObjectName("verticalLayout")
         self.new_data_label = QtWidgets.QLabel(parent=self.frame)
-        self.new_data_label.setMaximumSize(QtCore.QSize(16777215, 60))
+        self.new_data_label.setMaximumSize(QtCore.QSize(10000, 50))
         self.new_data_label.setSizeIncrement(QtCore.QSize(0, 0))
         font = QtGui.QFont()
         font.setFamily("Microsoft YaHei UI Light")
@@ -43,6 +43,7 @@ class Ui_Dialog(object):
 "/*font-weight: bold;*/\n"
 "font-size: 20pt;\n"
 "background-color:none;\n"
+"padding-left: 70px;\n"
 "")
         self.new_data_label.setObjectName("new_data_label")
         self.verticalLayout.addWidget(self.new_data_label)
@@ -52,7 +53,7 @@ class Ui_Dialog(object):
         font.setFamily("Microsoft YaHei UI Light")
         font.setPointSize(14)
         self.le_title_description.setFont(font)
-        self.le_title_description.setAutoFillBackground(True)
+        self.le_title_description.setAutoFillBackground(False)
         self.le_title_description.setStyleSheet("font-size: 14pt;\n"
 "height: 40px;")
         self.le_title_description.setObjectName("le_title_description")
@@ -63,7 +64,7 @@ class Ui_Dialog(object):
         font.setFamily("Microsoft YaHei UI Light")
         font.setPointSize(14)
         self.le_author_description.setFont(font)
-        self.le_author_description.setAutoFillBackground(True)
+        self.le_author_description.setAutoFillBackground(False)
         self.le_author_description.setStyleSheet("font-size: 14pt;\n"
 "height: 40px;")
         self.le_author_description.setObjectName("le_author_description")
@@ -86,7 +87,7 @@ class Ui_Dialog(object):
         self.de_date_description.setFont(font)
         self.de_date_description.setStyleSheet("font-size: 14pt;\n"
 "height: 40px;")
-        self.de_date_description.setDate(QtCore.QDate(2023, 6, 1))
+        self.de_date_description.setDate(QtCore.QDate(2000, 1, 1))
         self.de_date_description.setObjectName("de_date_description")
         self.verticalLayout.addWidget(self.de_date_description)
         self.cb_status_description = QtWidgets.QComboBox(parent=self.frame)
@@ -160,7 +161,7 @@ class Ui_Dialog(object):
 
     def retranslateUi(self, Dialog):
         _translate = QtCore.QCoreApplication.translate
-        Dialog.setWindowTitle(_translate("Dialog", "Change"))
+        Dialog.setWindowTitle(_translate("Dialog", "BookTrack-change"))
         self.new_data_label.setText(_translate("Dialog", "Добавить книгу"))
         self.le_title_description.setPlaceholderText(_translate("Dialog", "Название"))
         self.le_author_description.setPlaceholderText(_translate("Dialog", "Автор"))

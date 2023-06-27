@@ -33,7 +33,8 @@ class DataB:
             for value in values:
                 query.addBindValue(value)
 
-        query.exec()
+
+        return query.exec()
 
     def add_transaction_query(self, title, author, genre, date_added, status, price):  # добавление записи
         sql_query = 'INSERT INTO books (title, author, genre, date_added, status, price) VALUES (?, ?, ?, ?, ?, ?)'
@@ -47,3 +48,26 @@ class DataB:
     def delete_transaction_query(self, id):  # удаление записи
         sql_query = '''DELETE FROM books WHERE id = ?'''
         self.execute_query_wuth_params(sql_query, [id])
+
+    def get_line_data(self, id):
+        sql_query = f'SELECT * FROM books WHERE id={id}'
+        query = QtSql.QSqlQuery()
+        query.prepare(sql_query)
+
+        query.setForwardOnly(True)  # для возвращаемого значнения
+        query.exec()
+        if query.isActive():  # запрос активен
+            query.first()  # указатель на начало результата
+            # извлечение данных по названию столбцов
+            title = query.value('title')
+            author = query.value('author')
+            genre = query.value('genre')
+            date_added = query.value('date_added')
+            status = query.value('status')
+            price = query.value('price')
+
+            return title, author, genre, date_added, status, price
+
+        else:
+            print("Запрос не активен")
+            return False

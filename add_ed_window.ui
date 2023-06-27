@@ -7,8 +7,20 @@
     <x>0</x>
     <y>0</y>
     <width>400</width>
-    <height>586</height>
+    <height>570</height>
    </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>400</width>
+    <height>570</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>400</width>
+    <height>570</height>
+   </size>
   </property>
   <property name="font">
    <font>
@@ -16,7 +28,7 @@
    </font>
   </property>
   <property name="windowTitle">
-   <string>Change</string>
+   <string>BookTrack-change</string>
   </property>
   <property name="styleSheet">
    <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(22, 108, 204, 255), stop:1 rgba(83, 190, 201, 255));
@@ -27,23 +39,17 @@
     <widget class="QFrame" name="frame">
      <property name="styleSheet">
       <string notr="true">border: none;
-background-color: rgb(255, 255, 255, 40);
 border-radius: 8px;
+background-color: rgba(255, 255, 255, 40);
 </string>
-     </property>
-     <property name="frameShape">
-      <enum>QFrame::StyledPanel</enum>
-     </property>
-     <property name="frameShadow">
-      <enum>QFrame::Raised</enum>
      </property>
      <layout class="QVBoxLayout" name="verticalLayout">
       <item>
        <widget class="QLabel" name="new_data_label">
         <property name="maximumSize">
          <size>
-          <width>16777215</width>
-          <height>60</height>
+          <width>10000</width>
+          <height>50</height>
          </size>
         </property>
         <property name="sizeIncrement">
@@ -66,6 +72,7 @@ border-radius: 8px;
 /*font-weight: bold;*/
 font-size: 20pt;
 background-color:none;
+padding-left: 70px;
 </string>
         </property>
         <property name="text">
@@ -91,7 +98,7 @@ background-color:none;
          </font>
         </property>
         <property name="autoFillBackground">
-         <bool>true</bool>
+         <bool>false</bool>
         </property>
         <property name="styleSheet">
          <string notr="true">font-size: 14pt;
@@ -117,7 +124,7 @@ height: 40px;</string>
          </font>
         </property>
         <property name="autoFillBackground">
-         <bool>true</bool>
+         <bool>false</bool>
         </property>
         <property name="styleSheet">
          <string notr="true">font-size: 14pt;
@@ -171,8 +178,8 @@ height: 40px;</string>
         </property>
         <property name="date">
          <date>
-          <year>2023</year>
-          <month>6</month>
+          <year>2000</year>
+          <month>1</month>
           <day>1</day>
          </date>
         </property>
