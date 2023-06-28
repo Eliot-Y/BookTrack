@@ -6,6 +6,7 @@ from ui_main import Ui_MainWindow
 from connection import DataB
 from ui_add_ed_window import Ui_Dialog
 from datetime import date
+import error_window
 
 
 class Booktrack(QMainWindow):
@@ -24,11 +25,25 @@ class Booktrack(QMainWindow):
         self.ui.filter_pushButton.clicked.connect(self.filter_lines)
         self.ui.analytics_pushButton.clicked.connect(self.analytics_data_base)
 
+    def view_error(self):
+        self.error_window = QtWidgets.QDialog()
+        self.ui_error = error_window.Ui_Dialog()
+        self.ui_error.setupUi(self.error_window)
+        self.error_window.show()
+
+        self.ui_error.ok_pushButton.clicked.connect(self.error_window.close)
+
     def view_data(self):  # отображение данных из БД
         self.model = QSqlTableModel(self)
         self.model.setTable('books')  # соединение с таблицей
         self.model.select()  # выбрать данные
         self.ui.tableView.setModel(self.model)  # отображение таблицы
+        # установка количества книг и общей цены
+        self.ui.total_price_label.setText(str(self.db_object.get_sum_price()) + ' р.')
+        self.ui.amount_label.setText(str(self.db_object.get_count_lines()))
+
+    def view_filter_data(self):
+        pass
 
     def open_new_window_ad_ed(self):  # открывает окно ввода и редактирования
         self.new_window = QtWidgets.QDialog()  # создает новое базовое окно с последующей настройкой
@@ -49,27 +64,26 @@ class Booktrack(QMainWindow):
             # проверка на выделение id, окно выведется, если выделена одна запись
             index = self.ui.tableView.selectedIndexes()
             if len(index) != 1:
-                print('Необходимо выделить запись')
-                # добавить окно
+                self.view_error()
                 return
 
             book_status_dc = {'В планах': 0, 'Брошено': 1, 'В процессе': 2, 'Прочитано': 3}
 
             # настроить отображение старых данных
             id = str(self.ui.tableView.model().data(index[0]))
-            data_tuple = self.db_object.get_line_data(id)  # получение значений записи с переданным id
-            line_date = [int(c) for c in data_tuple[3].split('.')[::-1]]
+            data_lst = self.db_object.get_line_data(id)  # получение значений записи с переданным id
+            line_date = [int(c) for c in data_lst[3].split('.')[::-1]]
 
-            self.ui_window.le_title_description.setText(data_tuple[0])
-            self.ui_window.le_author_description.setText(data_tuple[1])
-            self.ui_window.le_genre_description.setText(data_tuple[2])
+            self.ui_window.le_title_description.setText(data_lst[0])
+            self.ui_window.le_author_description.setText(data_lst[1])
+            self.ui_window.le_genre_description.setText(data_lst[2])
             set_data_obj = self.ui_window.de_date_description.date()  # объект класса дата
             set_data_obj.setDate(*line_date)  # значение объекта
             self.ui_window.de_date_description.setDate(set_data_obj)  # устанавливаем новую дату
             # меняем местами два статуса, основной ставится в позицию ноль, а его позицию занимает статус по умолчанию
-            self.ui_window.cb_status_description.setItemText(book_status_dc[data_tuple[4]], 'В планах')
-            self.ui_window.cb_status_description.setItemText(0, data_tuple[4])
-            self.ui_window.le_price_description.setText(str(data_tuple[5]))
+            self.ui_window.cb_status_description.setItemText(book_status_dc[data_lst[4]], 'В планах')
+            self.ui_window.cb_status_description.setItemText(0, data_lst[4])
+            self.ui_window.le_price_description.setText(str(data_lst[5]))
 
             self.new_window.show()
             self.ui_window.save_pushButton.clicked.connect(self.edit_current_transaction)
@@ -101,14 +115,15 @@ class Booktrack(QMainWindow):
         self.new_window.close()
 
     def del_current_transaction(self):
-        try:
-            index = self.ui.tableView.selectedIndexes()
-            for i in index:
-                id = (self.ui.tableView.model().data(i))
-                self.db_object.delete_transaction_query(id)
-            self.view_data()
-        except IndexError:
-            print('IndexError')
+        if len(self.ui.tableView.selectedIndexes()) == 0:
+            self.view_error()
+            return
+
+        index = self.ui.tableView.selectedIndexes()
+        for i in index:
+            id = (self.ui.tableView.model().data(i))
+            self.db_object.delete_transaction_query(id)
+        self.view_data()
 
     def filter_lines(self):
         pass

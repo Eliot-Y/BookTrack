@@ -289,6 +289,7 @@ class Ui_MainWindow(object):
 "\n"
 "QTableView::item:selected{\n"
 "    border:  rgba(255, 255, 255, 90);\n"
+"    color: black;\n"
 "    background-color: rgba(255, 255, 255, 70);\n"
 "}\n"
 "\n"
@@ -296,12 +297,13 @@ class Ui_MainWindow(object):
 "")
         self.tableView.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarPolicy.ScrollBarAlwaysOff)
         self.tableView.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarPolicy.ScrollBarAlwaysOff)
-        self.tableView.setSizeAdjustPolicy(QtWidgets.QAbstractScrollArea.SizeAdjustPolicy.AdjustToContents)
+        self.tableView.setSizeAdjustPolicy(QtWidgets.QAbstractScrollArea.SizeAdjustPolicy.AdjustToContentsOnFirstShow)
         self.tableView.setTextElideMode(QtCore.Qt.TextElideMode.ElideRight)
         self.tableView.setShowGrid(False)
         self.tableView.setSortingEnabled(True)
         self.tableView.setObjectName("tableView")
         self.tableView.horizontalHeader().setDefaultSectionSize(155)
+        self.tableView.horizontalHeader().setMinimumSectionSize(100)
         self.tableView.horizontalHeader().setStretchLastSection(True)
         self.tableView.verticalHeader().setVisible(False)
         self.verticalLayout.addWidget(self.tableView)
@@ -314,9 +316,9 @@ class Ui_MainWindow(object):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "BookTrack"))
         self.text_label_1.setText(_translate("MainWindow", "Всего книг"))
-        self.amount_label.setText(_translate("MainWindow", "30"))
+        self.amount_label.setText(_translate("MainWindow", "0"))
         self.text_label_2.setText(_translate("MainWindow", "Общая цена"))
-        self.total_price_label.setText(_translate("MainWindow", "10 000"))
+        self.total_price_label.setText(_translate("MainWindow", "0"))
         self.add_pushButton.setText(_translate("MainWindow", "Добавить"))
         self.edit_pushButton.setText(_translate("MainWindow", "Редактировать"))
         self.del_pushButton.setText(_translate("MainWindow", "Удалить"))

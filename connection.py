@@ -1,4 +1,5 @@
 import sqlite3
+from typing import List, Any
 from PyQt6 import QtWidgets, QtSql
 
 
@@ -33,8 +34,9 @@ class DataB:
             for value in values:
                 query.addBindValue(value)
 
-
-        return query.exec()
+        query.exec()
+        query.first()  # указатель на начало результата
+        return query
 
     def add_transaction_query(self, title, author, genre, date_added, status, price):  # добавление записи
         sql_query = 'INSERT INTO books (title, author, genre, date_added, status, price) VALUES (?, ?, ?, ?, ?, ?)'
@@ -51,23 +53,25 @@ class DataB:
 
     def get_line_data(self, id):
         sql_query = f'SELECT * FROM books WHERE id={id}'
-        query = QtSql.QSqlQuery()
-        query.prepare(sql_query)
+        query = self.execute_query_wuth_params(sql_query)
 
-        query.setForwardOnly(True)  # для возвращаемого значнения
-        query.exec()
-        if query.isActive():  # запрос активен
-            query.first()  # указатель на начало результата
+        if query.isActive():  # проверка активен ли запрос
+            line_date = []
             # извлечение данных по названию столбцов
-            title = query.value('title')
-            author = query.value('author')
-            genre = query.value('genre')
-            date_added = query.value('date_added')
-            status = query.value('status')
-            price = query.value('price')
+            for i in range(1, 7):
+                line_date.append(query.value(i))
 
-            return title, author, genre, date_added, status, price
-
+            return line_date
         else:
             print("Запрос не активен")
             return False
+
+    def get_count_lines(self):
+        sql_query = 'SELECT COUNT(id) FROM books'
+        query = self.execute_query_wuth_params(sql_query)
+        return query.value(0)
+
+    def get_sum_price(self):
+        sql_query = 'SELECT SUM(price) FROM books'
+        query = self.execute_query_wuth_params(sql_query)
+        return query.value(0)
