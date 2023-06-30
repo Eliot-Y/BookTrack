@@ -1,6 +1,7 @@
 <RCC>
   <qresource prefix="icons">
     <file>icons_black/analytics_FILL0_wght400_GRAD0_opsz48.svg</file>
+    <file>icons_black/sync_FILL0_wght400_GRAD0_opsz48.svg</file>
     <file>icons_black/delete_FILL0_wght400_GRAD0_opsz48.svg</file>
     <file>icons_black/delete_FILL1_wght400_GRAD0_opsz48.svg</file>
     <file>icons_black/add_circle_FILL0_wght400_GRAD0_opsz48.svg</file>

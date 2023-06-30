@@ -1,5 +1,6 @@
 <RCC>
   <qresource prefix="newPrefix">
+    <file>icons_black/search_FILL0_wght400_GRAD0_opsz48.svg</file>
     <file>icons_black/save_FILL0_wght400_GRAD0_opsz48.svg</file>
   </qresource>
 </RCC>

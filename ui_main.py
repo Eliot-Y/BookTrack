@@ -206,8 +206,11 @@ class Ui_MainWindow(object):
         self.del_pushButton.setIconSize(QtCore.QSize(30, 30))
         self.del_pushButton.setObjectName("del_pushButton")
         self.Layout_buttons.addWidget(self.del_pushButton)
+        self.horizontalLayout = QtWidgets.QHBoxLayout()
+        self.horizontalLayout.setSpacing(0)
+        self.horizontalLayout.setObjectName("horizontalLayout")
         self.filter_pushButton = QtWidgets.QPushButton(parent=self.buttons_frame)
-        self.filter_pushButton.setMinimumSize(QtCore.QSize(180, 65))
+        self.filter_pushButton.setMinimumSize(QtCore.QSize(195, 65))
         font = QtGui.QFont()
         font.setFamily("Microsoft YaHei UI Light")
         font.setPointSize(14)
@@ -215,8 +218,13 @@ class Ui_MainWindow(object):
         self.filter_pushButton.setStyleSheet("QPushButton{\n"
 "font-size: 14pt;\n"
 "background-color: rgba(255, 255, 255, 10);\n"
-"border: 1px solid rgba(255, 255, 255, 40);\n"
-"border-radius: 6px;\n"
+"\n"
+"border-left: 1px solid rgba(255, 255, 255, 40);\n"
+"border-top: 1px solid rgba(255, 255, 255, 40);\n"
+"border-bottom: 1px solid rgba(255, 255, 255, 40);\n"
+"\n"
+"border-top-left-radius: 6px;\n"
+"border-bottom-left-radius: 6px;\n"
 "}\n"
 "\n"
 "QPushButton:hover{\n"
@@ -231,18 +239,16 @@ class Ui_MainWindow(object):
         self.filter_pushButton.setIcon(icon3)
         self.filter_pushButton.setIconSize(QtCore.QSize(30, 30))
         self.filter_pushButton.setObjectName("filter_pushButton")
-        self.Layout_buttons.addWidget(self.filter_pushButton)
-        self.analytics_pushButton = QtWidgets.QPushButton(parent=self.buttons_frame)
-        self.analytics_pushButton.setMinimumSize(QtCore.QSize(180, 65))
-        font = QtGui.QFont()
-        font.setFamily("Microsoft YaHei UI Light")
-        font.setPointSize(14)
-        self.analytics_pushButton.setFont(font)
-        self.analytics_pushButton.setStyleSheet("QPushButton{\n"
+        self.horizontalLayout.addWidget(self.filter_pushButton)
+        self.update_table_pushButton = QtWidgets.QPushButton(parent=self.buttons_frame)
+        self.update_table_pushButton.setMinimumSize(QtCore.QSize(0, 65))
+        self.update_table_pushButton.setMaximumSize(QtCore.QSize(100, 16777215))
+        self.update_table_pushButton.setStyleSheet("QPushButton{\n"
 "font-size: 14pt;\n"
 "background-color: rgba(255, 255, 255, 10);\n"
 "border: 1px solid rgba(255, 255, 255, 40);\n"
-"border-radius: 6px;\n"
+"border-top-right-radius: 6px;\n"
+"border-bottom-right-radius: 6px;\n"
 "}\n"
 "\n"
 "QPushButton:hover{\n"
@@ -252,12 +258,14 @@ class Ui_MainWindow(object):
 "QPushButton:pressed{\n"
 "background-color: rgba(255, 255, 255, 80);\n"
 "}")
+        self.update_table_pushButton.setText("")
         icon4 = QtGui.QIcon()
-        icon4.addPixmap(QtGui.QPixmap(":/icons/icons_black/analytics_FILL0_wght400_GRAD0_opsz48.svg"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
-        self.analytics_pushButton.setIcon(icon4)
-        self.analytics_pushButton.setIconSize(QtCore.QSize(30, 30))
-        self.analytics_pushButton.setObjectName("analytics_pushButton")
-        self.Layout_buttons.addWidget(self.analytics_pushButton)
+        icon4.addPixmap(QtGui.QPixmap(":/icons/icons_black/sync_FILL0_wght400_GRAD0_opsz48.svg"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        self.update_table_pushButton.setIcon(icon4)
+        self.update_table_pushButton.setIconSize(QtCore.QSize(35, 35))
+        self.update_table_pushButton.setObjectName("update_table_pushButton")
+        self.horizontalLayout.addWidget(self.update_table_pushButton)
+        self.Layout_buttons.addLayout(self.horizontalLayout)
         self.verticalLayout.addWidget(self.buttons_frame)
         self.tableView = QtWidgets.QTableView(parent=self.centralwidget)
         font = QtGui.QFont()
@@ -323,4 +331,3 @@ class Ui_MainWindow(object):
         self.edit_pushButton.setText(_translate("MainWindow", "Редактировать"))
         self.del_pushButton.setText(_translate("MainWindow", "Удалить"))
         self.filter_pushButton.setText(_translate("MainWindow", "Фильтр"))
-        self.analytics_pushButton.setText(_translate("MainWindow", "Аналитика"))

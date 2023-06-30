@@ -7,19 +7,19 @@
     <x>0</x>
     <y>0</y>
     <width>400</width>
-    <height>570</height>
+    <height>670</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
     <width>400</width>
-    <height>570</height>
+    <height>670</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
     <width>400</width>
-    <height>570</height>
+    <height>672</height>
    </size>
   </property>
   <property name="font">
@@ -28,7 +28,7 @@
    </font>
   </property>
   <property name="windowTitle">
-   <string>BookTrack-change</string>
+   <string>filter</string>
   </property>
   <property name="styleSheet">
    <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(22, 108, 204, 255), stop:1 rgba(83, 190, 201, 255));
@@ -76,13 +76,39 @@ background-color:none;
 </string>
         </property>
         <property name="text">
-         <string>Добавить книгу</string>
+         <string>Фильтр</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
         </property>
         <property name="margin">
          <number>0</number>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="le_id_description">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>50</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <family>Microsoft YaHei UI Light</family>
+          <pointsize>14</pointsize>
+         </font>
+        </property>
+        <property name="autoFillBackground">
+         <bool>false</bool>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">font-size: 14pt;
+height: 40px;</string>
+        </property>
+        <property name="placeholderText">
+         <string>id</string>
         </property>
        </widget>
       </item>
@@ -162,7 +188,7 @@ height: 40px;</string>
        </widget>
       </item>
       <item>
-       <widget class="QDateEdit" name="de_date_description">
+       <widget class="QLineEdit" name="le_date_from">
         <property name="minimumSize">
          <size>
           <width>0</width>
@@ -179,12 +205,31 @@ height: 40px;</string>
          <string notr="true">font-size: 14pt;
 height: 40px;</string>
         </property>
-        <property name="date">
-         <date>
-          <year>2000</year>
-          <month>1</month>
-          <day>1</day>
-         </date>
+        <property name="placeholderText">
+         <string>Дата от: 2007-12-31</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="le_date_last">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>50</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <family>Microsoft YaHei UI Light</family>
+          <pointsize>14</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">font-size: 14pt;
+height: 40px;</string>
+        </property>
+        <property name="placeholderText">
+         <string>Дата до: 2014.10.23</string>
         </property>
        </widget>
       </item>
@@ -226,12 +271,14 @@ background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgb
         <property name="editable">
          <bool>false</bool>
         </property>
-        <property name="currentText">
-         <string>В планах</string>
-        </property>
         <property name="currentIndex">
          <number>0</number>
         </property>
+        <item>
+         <property name="text">
+          <string/>
+         </property>
+        </item>
         <item>
          <property name="text">
           <string>В планах</string>
@@ -255,7 +302,7 @@ background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgb
        </widget>
       </item>
       <item>
-       <widget class="QLineEdit" name="le_price_description">
+       <widget class="QLineEdit" name="le_from_price_description">
         <property name="minimumSize">
          <size>
           <width>0</width>
@@ -272,13 +319,48 @@ background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgb
          <string notr="true">font-size: 14pt;
 height: 40px;</string>
         </property>
+        <property name="text">
+         <string/>
+        </property>
         <property name="placeholderText">
-         <string>Цена</string>
+         <string>Цена от:</string>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="save_pushButton">
+       <widget class="QLineEdit" name="le_top_price_description">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>50</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <family>Microsoft YaHei UI Light</family>
+          <pointsize>14</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">font-size: 14pt;
+height: 40px;</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="placeholderText">
+         <string>Цена до:</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="find_pushButton">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>65</height>
+         </size>
+        </property>
         <property name="font">
          <font>
           <family>Microsoft YaHei UI Light</family>
@@ -303,11 +385,11 @@ background-color: rgba(255, 255, 255, 80);
 }</string>
         </property>
         <property name="text">
-         <string>Выполнить</string>
+         <string>Поиск</string>
         </property>
         <property name="icon">
          <iconset resource="res-ad-ed.qrc">
-          <normaloff>:/newPrefix/icons_black/save_FILL0_wght400_GRAD0_opsz48.svg</normaloff>:/newPrefix/icons_black/save_FILL0_wght400_GRAD0_opsz48.svg</iconset>
+          <normaloff>:/newPrefix/icons_black/search_FILL0_wght400_GRAD0_opsz48.svg</normaloff>:/newPrefix/icons_black/search_FILL0_wght400_GRAD0_opsz48.svg</iconset>
         </property>
         <property name="iconSize">
          <size>
